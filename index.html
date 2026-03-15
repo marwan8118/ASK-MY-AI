@@ -61,38 +61,36 @@ text-align:left;
 
 <script>
 
-function askAI(){
+function askAI() {
+  let originalQuestion = document.getElementById("question").value;
+  let q = originalQuestion.toLowerCase().trim();
 
-let q=document.getElementById("question").value.toLowerCase();
+  if (q === "") {
+    return;
+  }
 
-if(q==""){return;}
+  let messages = document.getElementById("messages");
 
-let messages=document.getElementById("messages");
+  messages.innerHTML +=
+    "<div class='message user'><b>You:</b> " + originalQuestion + "</div>";
 
-messages.innerHTML+=
-"<div class='message user'><b>You:</b> "+q+"</div>";
+  let response = "I don't understand yet.";
 
-let response="I don't understand yet.";
+  if (q.includes("hello")) {
+    response = "Hello! How can I help you?";
+  } else if (q.includes("who are you")) {
+    response = "I am your AI assistant.";
+  } else if (q.includes("how are you")) {
+    response = "I'm good! Thanks for asking.";
+  } else if (q.includes("bye")) {
+    response = "Goodbye!";
+  }
 
-if(q.includes("hello")){
-response="Hello! How can I help you?";
+  messages.innerHTML +=
+    "<div class='message ai'><b>AI:</b> " + response + "</div>";
+
+  document.getElementById("question").value = "";
 }
-
-else if(q.includes("who are you")){
-response="I am your AI assistant.";
-}
-
-else if(q.includes("how are you")){
-response="I'm good! Thanks for asking.";
-}
-
-messages.innerHTML+=
-"<div class='message ai'><b>AI:</b> "+response+"</div>";
-
-document.getElementById("question").value="";
-
-}
-
 </script>
 
 </body>
