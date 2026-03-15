@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ask My AI | Smart AI Assistant Platform</title>tant Platform</title>
+  <title>Ask My AI | Smart AI Assistant Platform</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -35,6 +35,7 @@
       font-size: 24px;
       font-weight: bold;
       color: #0f172a;
+      letter-spacing: -0.3px;
     }
     .nav-links {
       display: flex;
@@ -230,17 +231,34 @@
       color: #6b7280;
       font-size: 17px;
     }
-    .features {
+    .features,
+    .gallery,
+    .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
-    .feature-card {
+    .feature-card,
+    .gallery-card,
+    .price-card,
+    .about-card,
+    .faq-item,
+    .contact-card,
+    .contact-form,
+    .platform-box {
       background: white;
       border: 1px solid #e5e7eb;
       border-radius: 22px;
-      padding: 24px;
       box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
+    }
+    .feature-card,
+    .price-card,
+    .about-card,
+    .faq-item,
+    .contact-card,
+    .contact-form,
+    .platform-box {
+      padding: 24px;
     }
     .icon {
       width: 52px;
@@ -253,26 +271,24 @@
       font-size: 24px;
       margin-bottom: 16px;
     }
-    .feature-card h3 {
+    .feature-card h3,
+    .gallery-card h3,
+    .faq-item h3 {
       margin-bottom: 10px;
       font-size: 21px;
       color: #111827;
     }
-    .feature-card p {
+    .feature-card p,
+    .gallery-card p,
+    .faq-item p,
+    .price-list,
+    .contact-card p {
       color: #6b7280;
       font-size: 15px;
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
     .gallery-card {
-      background: white;
-      border-radius: 22px;
       overflow: hidden;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
+      padding: 0;
     }
     .gallery-card img {
       width: 100%;
@@ -283,29 +299,14 @@
     .gallery-card .content {
       padding: 18px;
     }
-    .gallery-card h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-      color: #111827;
-    }
-    .gallery-card p {
-      color: #6b7280;
-      font-size: 15px;
-    }
     .platform {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
       gap: 28px;
       align-items: center;
     }
-    .platform-box {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 26px;
-      padding: 26px;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.05);
-    }
-    .platform-box img {
+    .platform-box img,
+    .about-card img {
       width: 100%;
       border-radius: 18px;
       height: 340px;
@@ -335,44 +336,11 @@
       flex-shrink: 0;
       font-weight: bold;
     }
-    .cta {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 55%, #0f172a 100%);
-      color: white;
-    }
-    .cta-box {
-      text-align: center;
-      padding: 20px 0;
-    }
-    .cta h2 {
-      font-size: 42px;
-      margin-bottom: 14px;
-    }
-    .cta p {
-      max-width: 700px;
-      margin: 0 auto 24px;
-      color: rgba(255,255,255,0.86);
-      font-size: 17px;
-    }
-    .footer {
-      padding: 28px 0;
-      text-align: center;
-      color: #6b7280;
-      font-size: 14px;
-      background: white;
-      border-top: 1px solid #e5e7eb;
-    }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
+    .pricing-grid { gap: 22px; }
     .price-card {
-      background: white;
-      border: 1px solid #e5e7eb;
+      position: relative;
       border-radius: 24px;
       padding: 28px;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
-      position: relative;
     }
     .price-card.featured {
       border: 2px solid #2563eb;
@@ -405,32 +373,18 @@
       display: grid;
       gap: 12px;
       margin: 22px 0;
-      color: #4b5563;
-      font-size: 15px;
     }
     .price-list div {
       padding: 10px 12px;
       background: #f8fafc;
       border-radius: 12px;
     }
-    .about-grid {
+    .about-grid,
+    .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 26px;
       align-items: center;
-    }
-    .about-card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
-    }
-    .about-card img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      border-radius: 18px;
     }
     .faq-grid {
       display: grid;
@@ -438,40 +392,16 @@
       max-width: 860px;
       margin: 0 auto;
     }
-    .faq-item {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
-    }
-    .faq-item h3 {
-      font-size: 20px;
-      color: #111827;
-      margin-bottom: 8px;
-    }
-    .faq-item p {
-      color: #6b7280;
-      font-size: 15px;
-    }
     .contact-grid {
-      display: grid;
       grid-template-columns: 0.95fr 1.05fr;
-      gap: 24px;
       align-items: start;
-    }
-    .contact-card, .contact-form {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
     }
     .contact-form form {
       display: grid;
       gap: 14px;
     }
-    .contact-form input, .contact-form textarea {
+    .contact-form input,
+    .contact-form textarea {
       width: 100%;
       border: 1px solid #d1d5db;
       border-radius: 12px;
@@ -483,19 +413,42 @@
       min-height: 140px;
       resize: vertical;
     }
+    .cta {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 55%, #0f172a 100%);
+      color: white;
+    }
+    .cta-box {
+      text-align: center;
+      padding: 20px 0;
+    }
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 14px;
+    }
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      color: rgba(255,255,255,0.86);
+      font-size: 17px;
+    }
+    .footer {
+      padding: 28px 0;
+      text-align: center;
+      color: #6b7280;
+      font-size: 14px;
+      background: white;
+      border-top: 1px solid #e5e7eb;
+    }
     @media (max-width: 980px) {
       h1 { font-size: 42px; }
-      .hero-grid, .platform, .features, .gallery, .mini-stats, .pricing-grid, .about-grid, .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .floating-card {
-        position: static;
-        width: 100%;
-        margin-top: 14px;
-      }
-      .hero-visual { display: grid; gap: 14px; }
-    }
-      .hero-grid, .platform, .features, .gallery, .mini-stats {
+      .hero-grid,
+      .platform,
+      .features,
+      .gallery,
+      .mini-stats,
+      .pricing-grid,
+      .about-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
       .floating-card {
@@ -506,9 +459,7 @@
       .hero-visual { display: grid; gap: 14px; }
     }
     @media (max-width: 640px) {
-      .nav-links {
-        display: none;
-      }
+      .nav-links { display: none; }
       .hero { padding-top: 42px; }
       h1 { font-size: 34px; }
       .section-title { font-size: 30px; }
@@ -519,7 +470,8 @@
 </head>
 <body>
   <nav class="navbar">
-    <div class="contain<div class="logo">Ask My AI</div>logo">Ask My AI</div>
+    <div class="container nav-inner">
+      <div class="logo">Ask My AI</div>
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#gallery">Gallery</a>
@@ -534,40 +486,62 @@
   </nav>
 
   <header class="hero">
-    <div class="container hero-grid"><div class="badge">AI Assistant for Students, Creators, and Businesses</div> Assistan<h1>Ask smarter. Work faster. Create better with Ask My AI.</h1>
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">The AI copilot for content, study, and daily work</div>
+        <h1>One smart assistant for ideas, answers, captions, plans, and productivity.</h1>
         <p>
-          Ask My AI is a smart assistant platform built to help students, creators, freelancers, and businesses get instant answers,
-          generate ideas, simplify daily work, and stay productive in one modern experience.
+          Ask My AI is a real brand concept built for people who want help in seconds. From content creation and product captions
+          to studying, planning, and quick problem solving, Ask My AI gives users one clean place to think faster and do more.
         </p>
-        <div class="hero-actions">s="btn btn-<a href="#start" class="btn btn-primary">Start Free</a>lass="btn btn-secondary">Watch Platform Preview</a>
+        <div class="hero-actions">
+          <a href="#start" class="btn btn-primary">Start Free</a>
+          <a href="#pricing" class="btn btn-secondary">See Pricing</a>
         </div>
         <div class="mini-stats">
           <div class="stat">
             <h3>24/7</h3>
-            <p>Al<div class="stat">
-            <h3>Instant</h3>
-            <p>Quick answers and idea generation</p>
+            <p>Always ready to answer</p>
           </div>
-      Questions, content, help, and workflow</p>
+          <div class="stat">
+            <h3>10x</h3>
+            <p>Faster ideation and writing</p>
+          </div>
+          <div class="stat">
+            <h3>1 place</h3>
+            <p>Content, learning, and workflow</p>
           </div>
         </div>
       </div>
 
       <div class="hero-visual">
-       ss="screen-top">Ask My AI Assistant</div>
+        <div class="phone-card">
+          <div class="screen">
+            <div class="screen-top">Ask My AI Workspace</div>
             <div class="screen-messages">
-              <div class="bubble ai">Hello! Welcome to Ask My AI.</div>
-              <div class="bubble user">Can you help me with content ideas?</ can generate ideas, answer questions, and support your daily tasks.</div>
-              <div class="bubble user">Can I use it for work and learning?</div>
-              <div cla="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="AI workspace" />
-          <strong>AI workspace</strong>
-          <p style="font-size:14px; color:#6b7280; margin-top:6px;">A platform feel that makes your product look modern, useful, and premium.</p>
+              <div class="bubble ai">Welcome back. What do you want to do today?</div>
+              <div class="bubble user">Give me 5 short captions for an electronics product post.</div>
+              <div class="bubble ai">Done. I can also create hooks, CTAs, and hashtag ideas for Instagram.</div>
+              <div class="bubble user">And help me revise a lesson in simple French.</div>
+              <div class="bubble ai">Of course. Ask My AI can explain lessons, summarize content, and organize your study plan.</div>
+            </div>
+            <div class="screen-input">
+              <div class="fake-input">Ask about content, study, work...</div>
+              <div class="send-btn">Send</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-card floating-1">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Ask My AI for creators" />
+          <strong>Built for real use</strong>
+          <p style="font-size:14px; color:#6b7280; margin-top:6px;">Creators, students, and freelancers can all find value fast.</p>
         </div>
 
         <div class="floating-card floating-2">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Website development" />
-          <strong>Ready for your brand</strong>
-          <p style="font-size:14px; color:#6b7280; margin-top:6px;">You can easily replace the text and visuals with your own platform message.</p>
+          <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=900&q=80" alt="Ask My AI productivity" />
+          <strong>Feels like a real product</strong>
+          <p style="font-size:14px; color:#6b7280; margin-top:6px;">Clean design, premium visuals, and a strong startup-style brand.</p>
         </div>
       </div>
     </div>
@@ -575,77 +549,124 @@
 
   <section id="features">
     <div class="container">
-      <h2 class="section-title">Everything users expect from a m    look ready for real users, clients, or investors.
+      <h2 class="section-title">Why Ask My AI feels useful from day one</h2>
+      <p class="section-text">
+        This brand is positioned around real everyday value: quicker answers, better content, easier studying, and less time wasted.
       </p>
       <div class="features">
         <div class="feature-card">
           <div class="icon">⚡</div>
-          <h3>Instant AI answers</h3>
-          <p>Users can ask questions and get quick helpful responses inside a clean and modern interface.</p>
+          <h3>Instant useful output</h3>
+          <p>Users ask naturally and get help fast, whether they need a caption, an explanation, a plan, or an idea.</p>
         </div>
         <div class="feature-card">
-          <div class="icon">🧠</div>
-     class="feature-card">
-          <div class="icon">🎨</div>
-          <h3>Premium design</h3>
-          <p>Rounded sections, polished spacing, strong visuals, and product-style cards create a premium first impression.</p>
+          <div class="icon">✍️</div>
+          <h3>Made for creators</h3>
+          <p>Generate post ideas, product descriptions, ad hooks, reel concepts, and better wording in seconds.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📘</div>
+          <h3>Made for learning too</h3>
+          <p>Explain lessons simply, summarize chapters, answer questions, and help users review faster.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="gallery" style=v class="gallery">
+  <section id="gallery" style="background:#ffffff;">
+    <div class="container">
+      <h2 class="section-title">The brand story is clear across every section</h2>
+      <p class="section-text">
+        The visuals now match one coherent idea: Ask My AI is a smart assistant brand for creation, learning, and productivity.
+      </p>
+      <div class="gallery">
         <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Dashboard analytics" />
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Content creation with Ask My AI" />
           <div class="content">
-            <h3>AI dashboard</h3>
-            <p>Show a smart product space where conversations, tasks, and insights are organized in one simple view.</p>
- 8fb19713f?auto=format&fit=crop&w=900&q=80" alt="Team and product" />
+            <h3>Content creation support</h3>
+            <p>Create captions, product texts, scripts, email drafts, and social media ideas from one smart workspace.</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80" alt="Studying with Ask My AI" />
           <div class="content">
-            <h3>Productive workflow</h3>
-            <p>Present Ask My AI as a tool that helps users think faster, work better, and save0221-31fd19575a2d?auto=format&fit=crop&w=900&q=80" alt="AI product screens" />
+            <h3>Study and revision help</h3>
+            <p>Ask questions, simplify difficult lessons, and turn complex information into quick understandable answers.</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80" alt="Business productivity with Ask My AI" />
           <div class="content">
-            <h3>Modern product experience</h3>
-            <p>Use clean visuals and interface-inspired imagery to make the platform feel pratform">
+            <h3>Business and workflow assistance</h3>
+            <p>Support daily work with ideas, summaries, task organization, and fast written output that saves time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="platform">
+    <div class="container platform">
       <div class="platform-box">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="SaaS platform screen" />
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Ask My AI dashboard" />
       </div>
       <div>
-        <h2 style="font-size:40px; color:#0f172a; margin-bottom:14px;">One plac, simplify tasks, and provide a smoother digital experience.
+        <h2 style="font-size:40px; color:#0f172a; margin-bottom:14px;">A brand built around one promise: ask once, move faster.</h2>
+        <p style="color:#6b7280; font-size:17px; max-width:600px;">
+          Ask My AI is no longer just generic AI copy. It now reads like a focused brand: a smart digital assistant that helps users
+          create content, understand topics, write faster, and stay organized without jumping between tools.
         </p>
         <div class="check-list">
           <div class="check-item">
             <div class="check-mark">✓</div>
             <div>
-              <strong>Simple user experience</strong>
-              <p style="color:#6b7280; margin-top:4px;">Users can start fast, ask directly, and receive helpful responses without confusion.</p>
-            </div>
-          </div>
-          <div class="check-item">
-            <div class="check-mark">✓ections, cards, and visuals help explain the value of the product clearly.</p>
+              <strong>Clear positioning</strong>
+              <p style="color:#6b7280; margin-top:4px;">Users understand immediately what the platform helps them do.</p>
             </div>
           </div>
           <div class="check-item">
             <div class="check-mark">✓</div>
             <div>
-              <strong>Flexible for many users</strong>
-              <p style="color:#6b7280; margin-top:4px;">Useful for learners, creators, professionals, and anyone who needs faster smart assistan;">
+              <strong>Strong use cases</strong>
+              <p style="color:#6b7280; margin-top:4px;">The whole site now speaks to content, learning, and work productivity.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-mark">✓</div>
+            <div>
+              <strong>Ready for a real startup feel</strong>
+              <p style="color:#6b7280; margin-top:4px;">The tone, visuals, and sections make the product feel more credible and brand-ready.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="background:#ffffff;">
     <div class="container">
-      <h2 class="section-title">About Ask My AI</h2>
+      <h2 class="section-title">About the brand</h2>
       <p class="section-text">
-        Ask My AI is presented as a modern digital assistant platform built to help users get answers quickly,
-        explore ideas, and simplify everyday work inside a premium product experience.
+        Ask My AI is designed like a modern startup brand with one simple mission: help people think faster and finish tasks with less friction.
       </p>
       <div class="about-grid">
         <div class="about-card">
-          <img src="="about-card">
-          <h3 style="font-size:30px; color:#0f172a; margin-bottom:12px;">A smarter way to ask, learn, and work</h3>
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Ask My AI brand team" />
+        </div>
+        <div class="about-card">
+          <h3 style="font-size:30px; color:#0f172a; margin-bottom:12px;">A brand that feels practical, modern, and easy to trust</h3>
           <p style="color:#6b7280; font-size:16px; margin-bottom:16px;">
-            The goal of Ask My AI is to make technology feel simple. The platform can be used to answer questions,
-            support content creation, assist productivity, and offer a modern AI experience that feels accessible and valuable.
+            Everything in this page now supports the same identity: Ask My AI is a helpful assistant for users who want better content,
+            simpler explanations, and quicker output in a clean premium experience.
           </p>
           <div class="check-list">
-   rs to ideas and smart support.</p></div>
+            <div class="check-item">
+              <div class="check-mark">✓</div>
+              <div><strong>Consistent message</strong><p style="color:#6b7280; margin-top:4px;">The headline, sections, and cards all speak about the same core value.</p></div>
+            </div>
+            <div class="check-item">
+              <div class="check-mark">✓</div>
+              <div><strong>More believable product identity</strong><p style="color:#6b7280; margin-top:4px;">It now feels like a real platform brand instead of a generic demo.</p></div>
             </div>
           </div>
         </div>
@@ -655,59 +676,100 @@
 
   <section id="pricing">
     <div class="container">
-      <h2 class="section-title">Simple pricing for every type of user</h2>
+      <h2 class="section-title">Pricing that matches the brand</h2>
       <p class="section-text">
-        Add pricing cards to make the platform feel more complete. You can later change the prices or plan names however you want.
+        These plans are written to fit the Ask My AI identity and can later be connected to real subscriptions.
       </p>
       <div class="pricing-grid">
         <div class="price-card">
-          <h3 style="font-size:24px; color:#111827;">Starter</h3>
-          <div cla           <div>Basic AI chat access</div>
-            <div>Simple replies</div>
-            <div>Clean platform interface</div>
+          <h3 style="font-size:24px; color:#111827;">Free</h3>
+          <div class="price">$0 <small>/ month</small></div>
+          <p style="color:#6b7280;">For users who want to explore the assistant and test simple questions, ideas, and drafts.</p>
+          <div class="price-list">
+            <div>Basic chat access</div>
+            <div>Simple idea generation</div>
+            <div>Starter writing help</div>
           </div>
-          <a href="#" class="btn btn-secondary" style="width:100%; text-align:center;">Get Started</a>
+          <a href="#" class="btn btn-secondary" style="width:100%; text-align:center;">Start Free</a>
         </div>
         <div class="price-card featured">
-          <div c0;">A stronger plan for users who want more help, more speed, and more value.</p>
+          <div class="tag">Best Value</div>
+          <h3 style="font-size:24px; color:#111827;">Creator Pro</h3>
+          <div class="price">$19 <small>/ month</small></div>
+          <p style="color:#6b7280;">For creators, students, and freelancers who use Ask My AI every day for content and productivity.</p>
           <div class="price-list">
-            <div>Advanced AI experience</div>
-            <div>Priority responses</div>
-            <div>More productivity tools</div>
+            <div>Better content generation</div>
+            <div>Smarter study support</div>
+            <div>Priority assistant experience</div>
           </div>
-          <a href="#" class="btn btn-primary" style="width:1ll>/ month</small></div>
-          <p style="color:#6b7280;">For teams, creators, or businesses who want a more complete platform setup.</p>
+          <a href="#" class="btn btn-primary" style="width:100%; text-align:center;">Choose Creator Pro</a>
+        </div>
+        <div class="price-card">
+          <h3 style="font-size:24px; color:#111827;">Business</h3>
+          <div class="price">$49 <small>/ month</small></div>
+          <p style="color:#6b7280;">For brands and teams who want a stronger assistant experience for workflow, support, and writing.</p>
           <div class="price-list">
-            <div>Team-friendly workflow</div>
-            <div>More customization</div>
-            <div>Business-ready presentation</div>
+            <div>Team-ready workflow</div>
+            <div>More advanced support use cases</div>
+            <div>Brand and business positioning</div>
           </div>
-          <a href="#" clse FAQ blocks make the platform feel complete and help explain the project more clearly.
+          <a href="#" class="btn btn-secondary" style="width:100%; text-align:center;">Talk to Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="background:#ffffff;">
+    <div class="container">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <p class="section-text">
+        The FAQ is also aligned with the brand so the platform feels more complete and intentional.
       </p>
       <div class="faq-grid">
         <div class="faq-item">
-          <h3>What is Ask My AI?</h3>
-          <p>Ask My AI is presented as a smart digital assistant platform where users can ask questions, get help, and explore ideas in a modern interface.</p>
+          <h3>What makes Ask My AI different?</h3>
+          <p>Ask My AI is positioned around clear daily value: helping users create content, understand information, and work faster in one place.</p>
         </div>
         <div class="faq-item">
-          <h3>Who can use this platform?</h3>
-          <p>It can be useful for students, creators, freelancers, professionals, and anyone whodd a contact section to make the platform feel ready for users, clients, or future customers.
+          <h3>Who is Ask My AI best for?</h3>
+          <p>It is ideal for students, creators, freelancers, small businesses, and anyone who wants quick intelligent support.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can the platform become real later?</h3>
+          <p>Yes. This landing page can later connect to a real assistant, login system, dashboard, payment plans, and saved user data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Ask My AI</h2>
+      <p class="section-text">
+        The contact section now also matches the brand and gives the platform a more real startup presence.
       </p>
       <div class="contact-grid">
         <div class="contact-card">
-          <h3 style="font-size:28px; color:#111827; margin-bottom:12px;">Let’s talk about your platform</h3>
+          <h3 style="font-size:28px; color:#111827; margin-bottom:12px;">Let’s build something smart</h3>
           <p style="color:#6b7280; font-size:16px; margin-bottom:18px;">
-            Use this block for contact details, support information, or a short message about how users can reach you.
+            Use this area for support, brand partnerships, business inquiries, or feedback from users who want to connect with the platform.
           </p>
           <div class="check-list">
-            <div>hello@askmyai.com</p></div>
+            <div class="check-item">
+              <div class="check-mark">@</div>
+              <div><strong>Email</strong><p style="color:#6b7280; margin-top:4px;">contact@askmyai.com</p></div>
             </div>
             <div class="check-item">
               <div class="check-mark">⌂</div>
-              <div><strong>Office</strong><p style="color:#6b7280; margin-top:4px;">Your startup workspace or city</p></div>
+              <div><strong>Location</strong><p style="color:#6b7280; margin-top:4px;">Remote-first digital brand</p></div>
             </div>
-          <input type="email" placeholder="Your email" />
-            <textarea placeholder="Write your message..."></textarea>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form>
+            <input type="text" placeholder="Your name" />
+            <input type="email" placeholder="Your email" />
+            <textarea placeholder="Tell us what you need..."></textarea>
             <button type="button">Send Message</button>
           </form>
         </div>
@@ -716,14 +778,18 @@
   </section>
 
   <section class="cta" id="start">
-    <div class="contt fully to your final idea.
+    <div class="container cta-box">
+      <h2>Ready to turn Ask My AI into a real startup-style platform?</h2>
+      <p>
+        The full page is now branded from top to bottom. The text, sections, and photos all support one consistent identity.
+        The next step is adding the real assistant, login pages, and working interactions.
       </p>
       <a href="#" class="btn" style="background:white; color:#111827;">Start with Ask My AI</a>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container">Ask My AI — Smart platform landing page concept.</div>
+    <div class="container">Ask My AI — Your smart AI assistant for content, learning, and productivity.</div>
   </footer>
 </body>
 </html>
