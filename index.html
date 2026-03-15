@@ -2,20 +2,19 @@
 <html>
 
 <head>
-
 <title>Ask My AI</title>
 
 <style>
 
 body{
-font-family: Arial;
+font-family:Arial;
 background:#f4f4f4;
 text-align:center;
-margin-top:50px;
+margin-top:40px;
 }
 
 #chat{
-width:400px;
+width:420px;
 margin:auto;
 background:white;
 padding:20px;
@@ -29,7 +28,7 @@ padding:10px;
 }
 
 button{
-padding:10px 15px;
+padding:10px;
 background:#007BFF;
 color:white;
 border:none;
@@ -41,13 +40,8 @@ margin:10px 0;
 text-align:left;
 }
 
-.user{
-color:blue;
-}
-
-.ai{
-color:green;
-}
+.user{color:blue;}
+.ai{color:green;}
 
 </style>
 
@@ -61,7 +55,7 @@ color:green;
 
 <div id="messages"></div>
 
-<input type="text" id="question" placeholder="Ask something">
+<input id="question" placeholder="Ask something">
 <button onclick="askAI()">Send</button>
 
 </div>
@@ -70,23 +64,21 @@ color:green;
 
 function askAI(){
 
-let question=document.getElementById("question").value;
+let q=document.getElementById("question").value;
 
-if(question==""){
-return;
-}
+if(q==""){return;}
 
 let messages=document.getElementById("messages");
 
 messages.innerHTML+=
-"<div class='message user'><b>You:</b> "+question+"</div>";
+"<div class='message user'><b>You:</b> "+q+"</div>";
+
+let response="I'm a simple AI demo. Soon I will answer real questions.";
 
 messages.innerHTML+=
-"<div class='message ai'><b>AI:</b> I received your question.</div>";
+"<div class='message ai'><b>AI:</b> "+response+"</div>";
 
 document.getElementById("question").value="";
-
-messages.scrollTop=messages.scrollHeight;
 
 }
 
